@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pin Generator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="pin-generator half-width">
+                    <input id="screen" class="form-control" type="text">
+                    <button id="codeGenerate" class="generate-btn">Generate Pin</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="input-section half-width">
+                    <input id="displayNumber" placeholder="0" class="calculator1" type="text">
+                    <div class="numbers">
+                        <div id="form" class="calc-body">
+                            <div class="calc-button-row">
+                              <div id="seven" class="button">7</div>
+                              <div id="eight" class="button">8</div>
+                              <div id="nine" class="button">9</div>
+                            </div>
+                            <div class="calc-button-row">
+                              <div id="four" class="button">4</div>
+                              <div id="five" class="button">5</div>
+                              <div id="six" class="button">6</div>
+                            </div>
+                            <div class="calc-button-row">
+                              <div id="one" class="button">1</div>
+                              <div id="two" class="button">2</div>
+                              <div id="three" class="button">3</div>
+                            </div>
+                            <div class="calc-button-row">
+                                <div id="backSpace" class="button"><</div>
+                                <div id="zero" class="button">0</div>
+                                <div id="clear" class="button">C</div>
+                            </div>
+                            <div>
+                                <button id="submitBtn" type="submit" class="submit-btn">Submit</button>
+                                <p class="action-left">3 try left</p>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="notify-area" class="notify-section">
+            <p id="pinNotMatched" class="notify">❌ Pin Didn't Match, Please try again</p>
+            <p id="pinMatched" class="notify">✅ Pin Matched... Secret door is opening for you</p>
+        </div>
+    </div>
+
+    <script>
+
+
+// Hide Eelements
+        const notifyArea = document.getElementById ("notify-area");
+        notifyArea.style.display = "none";
+
+
+// Random Code Generator
+
+            document.getElementById('codeGenerate').addEventListener('click', function(){
+      var value = document.getElementById('screen').value = Math.floor(1000 + Math.random() * 9000);
+            console.log(value);
+            })
+                   
+// Set Buttons Value
+
+         document.getElementById ("seven").addEventListener ('click', function(){
+            getNumber ("seven");
+        })
+
+        document.getElementById ("eight").addEventListener ('click', function(){
+            getNumber ("eight");
+        })
+
+        document.getElementById ("nine").addEventListener ('click', function(){
+            getNumber ("nine");
+        })
+
+        document.getElementById ("four").addEventListener ('click', function(){
+            getNumber ("four");
+        })
+
+        document.getElementById ("five").addEventListener ('click', function(){
+            getNumber ("five");
+        })
+
+        document.getElementById ("six").addEventListener ('click', function(){
+            getNumber ("six");
+        })
+
+        document.getElementById ("one").addEventListener ('click', function(){
+            getNumber ("one");
+        })
+
+        document.getElementById ("two").addEventListener ('click', function(){
+            getNumber ("two");
+        })
+
+        document.getElementById ("three").addEventListener ('click', function(){
+            getNumber ("three");
+        })
+
+        document.getElementById ("zero").addEventListener ('click', function(){
+            getNumber ("zero");
+        })
+
+        function getNumber(id){
+                const newNumber = document.getElementById(id).innerText;
+
+                if (displayNumber.value.length <14) {
+                    const displayNumberString = displayNumber.value.toString();
+                    const newNumberString = newNumber.toString();
+                    displayNumber.value = parseInt (displayNumberString + newNumberString);
+                    
+                }
+            }
+
+
+           
+  // Bonous Area      
+            document.getElementById('clear').addEventListener('click', function(){
+                document.getElementById('displayNumber').value = '0';
+            })
+
+           
+           
+            var value = document.getElementById('backSpace').addEventListener('click', function(){
+                document.getElementById('displayNumber').value = displayNumber.value.slice(0, displayNumber.value.length -1);
+            })
+
+// Bonoue Area end.
+
+                
+// Pin Matched
+
+                // document.getElementById ('submitBtn').addEventListener('click', function(){
+                //     document.getElementById('screen').value = displayNumber.value.slice(0, displayNumber.value.length + 4);
+                //      var displayNumber = 4;
+                //      if (displayNumber = 4) {
+                //     document.getElementById('displayNumber').value = '0';
+                //      consol.log = document.getElementById ('pinMatched')
+                //         }
+                //     else {
+
+                //         consol.log = document.getElementById ('pinNotMatched')
+                //     }
+            
+               document.getElementById ('submitBtn').addEventListener('click', function(){
+
+                   var inputValue = screen.value;
+                   var inputValue = displayNumber.value;
+                   if (screen == true && displayNumber == true){
+                      document.getElementById ('pinMatched').value;
+                   }
+                   else{
+                       document.getElementById ('pinNotmatched').value;
+                   }
+               })
+                   
+
+               
+    </script>
+</body>
+</html>
