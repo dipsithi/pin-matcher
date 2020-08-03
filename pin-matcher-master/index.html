@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="pin-generator half-width">
-                    <input id="screen" class="form-control" type="text">
+                    <input id="screen" placeholder="0" class="form-control" type="text">
                     <button id="codeGenerate" class="generate-btn">Generate Pin</button>
                 </div>
             </div>
@@ -58,19 +58,18 @@
     <script>
 
 
-// Hide Eelements
-        const notifyArea = document.getElementById ("notify-area");
-        notifyArea.style.display = "none";
 
-
-// Random Code Generator
+// Random Code Generator start
 
             document.getElementById('codeGenerate').addEventListener('click', function(){
       var value = document.getElementById('screen').value = Math.floor(1000 + Math.random() * 9000);
             console.log(value);
             })
+
+// Random Code Generator End
                    
-// Set Buttons Value
+
+// Buttons Value area start
 
          document.getElementById ("seven").addEventListener ('click', function(){
             getNumber ("seven");
@@ -122,16 +121,18 @@
                     
                 }
             }
-
+// buttons value area end
 
            
-  // Bonous Area      
+// Bonous Area    
+
+  // Clear  Button
             document.getElementById('clear').addEventListener('click', function(){
                 document.getElementById('displayNumber').value = '0';
             })
 
            
-           
+   // Back Space Button        
             var value = document.getElementById('backSpace').addEventListener('click', function(){
                 document.getElementById('displayNumber').value = displayNumber.value.slice(0, displayNumber.value.length -1);
             })
@@ -139,32 +140,26 @@
 // Bonoue Area end.
 
                 
-// Pin Matched
+// Pin Matched, pin not matched and Submit Button
 
-                // document.getElementById ('submitBtn').addEventListener('click', function(){
-                //     document.getElementById('screen').value = displayNumber.value.slice(0, displayNumber.value.length + 4);
-                //      var displayNumber = 4;
-                //      if (displayNumber = 4) {
-                //     document.getElementById('displayNumber').value = '0';
-                //      consol.log = document.getElementById ('pinMatched')
-                //         }
-                //     else {
-
-                //         consol.log = document.getElementById ('pinNotMatched')
-                //     }
-            
                document.getElementById ('submitBtn').addEventListener('click', function(){
+                    var screenNumber = document.getElementById('screen');      
+                   var inputValue1 = screenNumber.value;
 
-                   var inputValue = screen.value;
-                   var inputValue = displayNumber.value;
-                   if (screen == true && displayNumber == true){
-                      document.getElementById ('pinMatched').value;
+                   var screen2 = document.getElementById('displayNumber');
+                   var inputValue2 = screen2.value;
+
+                   if (inputValue1 == inputValue2){
+
+                      document.getElementById ('pinMatched').style.display="block";
+                      document.getElementById ('pinNotMatched').style.display="none";
                    }
                    else{
-                       document.getElementById ('pinNotmatched').value;
+                           document.getElementById ('pinNotMatched').style.display="block";
+                           document.getElementById ('pinMatched').style.display="none";
                    }
                })
-                   
+    // Pin Matched, pin not matched and Submit Button area end
 
                
     </script>

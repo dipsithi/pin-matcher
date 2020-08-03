@@ -68,6 +68,7 @@ color: #fff;
 .calculator1{
     font-size: 40px;
     font-weight: 700;
+    text-align: right;
 }
 
 .calc-button-row {
@@ -107,6 +108,7 @@ color: #E0B612;
     margin-top: 20px;
     border-radius: 15px;
     padding: 5px 20px;
+    display: none;
 }
 .notify-section{
     width: 35%;
